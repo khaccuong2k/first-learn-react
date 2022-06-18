@@ -1,0 +1,241 @@
+1. Arrow function trong Javascript ES6
+Arrow function : mũi tên + hàm => hàm mũi tên
+
+ham` binh` thuong`
+function logger(log) {
+    console.log(log);
+}
+ham` Arrow function : 
+const logger = (log) => {
+    console.log(log);
+} => giup viet ngan gon hon
+
+const sum = (a, b) => {
+    return a + b;
+}
+=> viet tat
+const sum = (a, b) => a + b;
+
+const sum = a => a;
+
+2. Module torng Javascript ES6
+Import / export
+
+import logger from './logger.js'; taij file required
+tai file owner export default logger;
+tách 1 phần chức năng riêng ra để dễ triển khai
+
+3. Enhanced object literals trong javascript ES6
+ có thể làm được
+ * định nghĩa key: value cho object cho ngắn gọn hơn
+ ** định nghĩa method cho object
+ *** định nghĩa key cho object dưới dạng biến
+
+var name = 'Javascript';
+var price = 1000
+
+var course = {
+    *name: name,
+    *price: price,
+    **getName() {
+        return name;
+    }
+}
+
+var fieldName = 'name';
+var fieldPrice = 'price';
+
+const course = {
+    [fieldName]: 'Javascript',
+    [fieldPrice]: 1000
+}
+
+4. Destructuring + Rest parameters
+
+Destructuring : là những phần tử đầu trong function logger
+Rest parameters : là những phần tử sau (...params)
+
+function logger(1, 2, ...params) {
+    console.log(params);
+}
+
+5. Toán tử Spread trong javascript ES6
+
+var arr1 = [1, 2, 3]
+var arr2 = [4, 5, 6]
+var spread = [...arr1, ...arr2]
+
+var obj1 = {
+    name: 'cuong'
+}
+var obj2 = {
+    name: 'cuongg'
+}
+
+var spread = {...obj1, ...obj2}
+
+6. Destructuring trong javascript ES6
+Destructuring : phân rã
+sử dụng cho array và object
+
+- array
+var array = [1, 2, 3];
+var [a, b, c] = array
+console.log(a, b, c);
+
+7. document.createElement() để làm gì?
+
+giúp tạo ra 1 element, trả về đối tượng DOM element
+
+8. Thêm React vào Website? Github, NPMJS, UNPKG là gì?
+
+- nhúng thư viện react vào ưebsite
+
+node package manager : npm 
+
+9. React.createElement() nữa là sao? render giao diện người dùng
+
++ React.createElement() :
+ -- trả về object gọi là React element
+ -- DOM có thành phần nhỏ nhất là node, react element là nhỏ nhất khi làm việc với react element
++ So sanh'
+ -- 
+
+10. React-DOM là gì? Tại sao cần React-DOM?
+
+Tại sao phải sử dụng : đẻ có thể render ra react element
+Là 1 thư viện, là cầu nối giữa REACT và DOM, giúp react tạo element và dùng nó để render vào DOM
+
+11. JSX là gì? Tại sao cần JSX?
+ - sử dụng để 
+ - có thể tạo ra biến và gán JSX cho nó
+ - chỉ có cách sử dụng dấu {} để viết code JS trong JSX
+ - JSX & ReactDOM
+ + 
+
+12. JSX render Arrays | JSX FQA
+
+13. React element types | React components
+
+khi nafo dungf function hoặc class
+
+function component & class component
+
+gần như là dùng function component
+
+14. Props là gì? Dùng props khi nào?
+là 1 object chứa những thuộc tính để có thể mô tả cho React mà mình tạo ra
+- React elements
+với những thẻ JSX giuống html
+sử dụng props giống như với attrbute của thẻ html
+2 props class, for => className, htmlFor 
+phải tuân theo quy ước có sẵn
+
+- React components
+function để tạo ra thằng trên thì là component
+sử dụng props giống như đối số cho component
+tự do đặt tên props
+
+chú ý
+ + Prop "key" là prop đặt biệt
+ + Props cơ bản là đối số của component
+  => Props cps thể là bất cứ kiểu dữ liệu gì
+ + có thể sử dụng Destructuring
+
+15. DOM events? Làm việc với JSX #1
+
+- Sử lý DOM events : kiểu như click, change, ...
+
+16. Children props & Render props? Làm việc với JSX #3
+
+Làm việc với JSX khi suwr dụng props 
+
+17. NodeJS là gì? Tại sao phải sử dụng NodeJS trong khóa ReactJS?
+
+NodeJS là 1 javascript run time, khi cài trên máy tính thì sẽ tạo ra môi trường độc lập để giúp thực thi code javascript mà k cần sử dụng các môi trường độc lập khác
+để NodeJS co thể chạy được thì bên trong nó sử dụng , đưuocj cài đặt trên những trình duyệt khác như chrome 
+
+Tại sao phải sử dụng NodeJS trong khóa ReactJS
+để tạo ra 1 máy chủ web 
+dễ dàng tạo ra 1 project, tạo sẵn những thứ lặp đi lặp lại trong 1 dự án
+íntall tất cả rồi dùng thui nhen
+ưebpack là thư viện giúp chia nhỏ file ròio compile lại thành tối thiểu giúp ít kêyt nối giữa file để tăng hiệu năng, mini file đầu ra, giảm tải trên web
+
+ưu điểm lớn là nó module hoá lên, mini file để tối ưu lên production
+18. Dự án ReactJS đưuocj tạo ra như thế nào ?
+
+19. create react app
+
+20. NPM, NPX và YARN là gì?
+
+- NPM 
+khác nhau là cụ thể và toàn bộ máy
+khi cài node thì tự động cài NPM, NPX
+ + Project scope
+   npm install react react-dom => dependencies
+   npm i -D react lưu vào dev 
+   npm uninstall react
+ + Global scope
+- NPX 
+ + Tại sao lại dùng tar ?
+ + 
+- YARN 
+ package mânger js 
+ bỏned 2010 
+ ra đời để cải thiện các vấn đề npm gặp phải : bảo mật, tối ưu hệ thống 
+ nhưng sau đó thì npm nhận ra sai lầm và đã cải thiện, hai thằng này giờ như nhau cạ thôi 
+ sự khác nhau của YARN và NPM 
+ package-lock.json or yarn.json là dể thể hiện sự phụ thuộc giữa các thư viện trong dự án 
+ giúp optimize đơn giản hơn 
+ nếu có 1 thằng thư viện dùng chung cho những thằng có sự phụ thuộc, có thể kéo lại với nhau để sử dụng chứ k cần tải lại nữa nhennnn 
+ 2 thằng này khác nhau ở sự khác biệt về performance 
+ npm khi cài nhiều thư viện thì cài tuần tự 
+ yarn thì hỗ trợ cài song song 
+ vè cơ chế cache 
+ yarn tốt hơn npm , khi xoá node modules để tải lại, thằng yarn thì lưuu tạm vào hệ thống nên khi tải lại thì nhanh hơn đó nhennn 
+ cơ mà nó tốn dụng lượng của hệ thống đó ngenn 
+ nếu phải lựa chọn thì dùng nào cũng được, nhưng nếu muốn nhanh hơn xíu thì dùng yarn, còn nếu thiếu bộ nhớ thì  dùng npm 
+ 
+YARN và NPM có thể dùng thay thế nhau, chỉ nên dùng 1 thôi má ơi
+
+21. CRA Folder Structure
+
+22. Hooks là gì? Giới thiệu React Hooks
+
+Bản chất : nó là hàm, mà method được viết sẵn và cung cấp bởi thư viên ReactJS mỗi hàm có tính năng hoặc trường hợp để sử dụng cụ thể, khi làm việc với function component thì lấy ra và dùng trong function component này
+gọi là gắn móc vào
+
+khi nào sử dụng, và như thế lào
+cần import từ thư vieenj reactjs
+quy ước dặt tên là có use phía trước
+
+đã được tiêm sẵn vào thằng React
+có thể làm được nhiều việc như sử lí logic, call api, listen event trong DOM, ...
+nhớ là tên và ý  nghĩa, nhận đối số là gì và trả ra những gì, sử dụng trả ra như thế nào nhoaaaa
+
+Hook chỉ dùng cho function component, k dùng cho class component
+tạo ra component đơn giản và dễ hiểu hơn những vẫn đầy đủ tính năng 
+ví dụ như dùng class thì nó rườm rà, khó hơn ở chổ phải có hướng đối tượng, hiểu được this của class 
+hook có lìicycle từ khi được tgheem vào DOM đến khi nó rớt 
+giúp ta có thể viết logic xảy ra ở khác thười điểm nhưng vẫn có thể gần nhauuu 
+khi nào thì sử dụng : cứ mặc định xài cho dự án mới => đã được koeerm chứng 
+
+có thể kêys hợp giữa clas component và func component
+
+các hook cần học nè
+
+1. useState : đề cập tơies trạng thái của dữ liệu, ra đời để đơn giản trong việc thay đổi dữ liệu ra giao diện người dùng
+sử dụng khi dữ liệu được thay dổi và cần show ra màn hình 
+ => const [state, setState] = useState(initState)
+đầu vào : giá trị khởi tạo chỉ dùng trong laanf đầu
+đầu ra : 2 giá trị, khởi tạo = gì thì trả ra state = nấy, khi sửa thì gọi setState
+
+sử lý form
+
+
+Two-way binding : ràng buộc 2 chiều
+- ràng buộc 2 chiều : thay đổi 1 chiều chiều kia thay đổi 
+- Vuejs là Two-way binding
+One-way binding : ràng buộc 1 chiều
+- ràng buộc 1 chiều là chiều tương tác trên giao diện
+- ReactJS là one-way binding
