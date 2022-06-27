@@ -1,32 +1,28 @@
+import routesConfig from "~/configs/routes";
 import { Fragment, useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleQuestion,
-  faCircleXmark,
-  faCloudUpload,
   faCoins,
   faEarthAsia,
   faEllipsisVertical,
   faKeyboard,
-  faMagnifyingGlass,
   faQuestionCircle,
   faSignOut,
-  faSpinner,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react";
-import TippyHeadLess from "@tippyjs/react/headless";
-import 'tippy.js/dist/tippy.css';
+import "tippy.js/dist/tippy.css";
 
 import Button from "~/components/Button";
-import { Wrapper as PopperWrapper } from "~/components/Popper";
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
-import AccountItem from "~/components/AccountItem";
 import Menu from "~/components/Popper/Menu";
 import { Upload } from "~/components/Icons";
 import Image from "~/components/Image";
+import Search from "../Search";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -51,68 +47,46 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  const [searchResult, setSearchResult] = useState([]);
-
-  const handleMenuChange = (menuItem) => {
-  };
-
+  
+  const handleMenuChange = (menuItem) => {};
   const current_user = true;
-
-  useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([]);
-    }, 0);
-  }, []);
-
   const userMenu = [
-    { icon: <FontAwesomeIcon icon={faUser} />, title: "View profile", to: "/profile" },
-    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: "Get coins", to: "/get-coin" },
-    { icon: <FontAwesomeIcon icon={faCoins} />, title: "Settings", to: "/settings" },
+    {
+      icon: <FontAwesomeIcon icon={faUser} />,
+      title: "View profile",
+      to: "/profile",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+      title: "Get coins",
+      to: "/get-coin",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCoins} />,
+      title: "Settings",
+      to: "/settings",
+    },
     ...MENU_ITEMS,
-    { icon: <FontAwesomeIcon icon={faSignOut} />, title: "Logout", to: "/logout" },
-  ]
+    {
+      icon: <FontAwesomeIcon icon={faSignOut} />,
+      title: "Logout",
+      to: "/logout",
+    },
+  ];
 
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <Button href='/upload'>ahihi</Button>
-        <img src={images.logo} alt='Tiktok' />
-        <TippyHeadLess
-          interactive
-          render={(attrs) => (
-            <div className={cx("search-result")} tabIndex='-1' {...attrs}>
-              <PopperWrapper>
-                <h4 className={cx("search-title")}>Accounts</h4>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx("search")}>
-            <input
-              placeholder='Search accounts and videos'
-              spellCheck={false}
-            />
+        <Link to={routesConfig.root} className={cx("logo-link")}>
+          <img src={images.logo} alt='Tiktok' />
+        </Link>
 
-            <button className={cx("clear-btn")}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-            <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />
-
-            <button className={cx("search-btn")}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-          </div>
-        </TippyHeadLess>
+        <Search ></Search>
 
         <div className={cx("action")}>
           {current_user ? (
             <Fragment>
-              <Tippy delay={200} content="Upload video" placement="bottom">
+              <Tippy delay={200} content='Upload video' placement='bottom'>
                 <button className={cx("action-btn")}>
                   <Upload></Upload>
                 </button>
@@ -126,7 +100,10 @@ function Header() {
               </Button>
             </Fragment>
           )}
-          <Menu items={current_user ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+          <Menu
+            items={current_user ? userMenu : MENU_ITEMS}
+            onChange={handleMenuChange}
+          >
             {current_user ? (
               <Image
                 className={cx("user-avatar")}

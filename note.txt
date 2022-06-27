@@ -239,3 +239,10 @@ Two-way binding : ràng buộc 2 chiều
 One-way binding : ràng buộc 1 chiều
 - ràng buộc 1 chiều là chiều tương tác trên giao diện
 - ReactJS là one-way binding
+
+Tìm Hiểu Và Sử Dụng Thư Viện Axios Trong Dự Án ReactJS
+base tuwf promise
+
+HTTP client : goj api tuwf trinhf duyeetj, hoac may chu nhu nodejs 
+
+npm i axios 
