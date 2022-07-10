@@ -1,5 +1,5 @@
 import routesConfig from "~/configs/routes";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -35,6 +35,30 @@ const MENU_ITEMS = [
       data: [
         { type: "language", code: "en", title: "English" },
         { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
+        { type: "language", code: "vi", title: "Tieng Viet" },
       ],
     },
   },
@@ -47,7 +71,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  
   const handleMenuChange = (menuItem) => {};
   const current_user = true;
   const userMenu = [
@@ -81,7 +104,7 @@ function Header() {
           <img src={images.logo} alt='Tiktok' />
         </Link>
 
-        <Search ></Search>
+        <Search></Search>
 
         <div className={cx("action")}>
           {current_user ? (
@@ -107,7 +130,7 @@ function Header() {
             {current_user ? (
               <Image
                 className={cx("user-avatar")}
-                src='https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/97c273f9d2a0ad0835605eec7ff86c7c~c5_100x100.jpeg?x-expires=1655985600&x-signature=bAbH2EJyd%2FZKlpZCJKwQqIF72og%3D'
+                src='./src/assets/images/Cach-su-dung-Have-a-nice-day-trong-Tieng-Anh-2.jpg'
                 alt='Ahihi nhoaaaa'
               />
             ) : (
