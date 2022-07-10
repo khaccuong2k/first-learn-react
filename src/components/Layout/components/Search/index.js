@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,7 +9,6 @@ import {
 import TippyHeadLess from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 
-import Button from "~/components/Button";
 import { Wrapper as PopperWrapper } from "~/components/Popper";
 import styles from "./Search.module.scss";
 import AccountItem from "~/components/AccountItem";
@@ -44,57 +43,59 @@ function Search() {
   }, [debounce]);
 
   return (
-    <TippyHeadLess
-      interactive
-      visible={showResult && searchResult.length > 0}
-      render={(attrs) => (
-        <div className={cx("search-result")} tabIndex='-1' {...attrs}>
-          <PopperWrapper>
-            <h4 className={cx("search-title")}>Accounts</h4>
-            {searchResult.map(data => (
-              <AccountItem key={data.id} data={data} />
-            ))}
-          </PopperWrapper>
-        </div>
-      )}
-      onClickOutside={() => {
-        setShowResult(false);
-      }}
-    >
-      <div className={cx("search")}>
-        <input
-          ref={inputRef}
-          value={searchValue}
-          placeholder='Search accounts and videos'
-          spellCheck={false}
-          onChange={(e) => {
-            const searchValue = e.target.value;
-            if (searchValue.startsWith(" ")) {
-              return;
-            }
-            setSearchValue(searchValue)
-          }}
-          onFocus={(e) => setShowResult(true)}
-        />
-
-        {!!searchValue && !loading && (
-          <button
-            className={cx("clear-btn")}
-            onClick={() => {
-              setSearchValue("");
-              inputRef.current.focus();
-            }}
-          >
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </button>
+    <div>
+      <TippyHeadLess
+        interactive
+        visible={showResult && searchResult.length > 0}
+        render={(attrs) => (
+          <div className={cx("search-result")} tabIndex='-1' {...attrs}>
+            <PopperWrapper>
+              <h4 className={cx("search-title")}>Accounts</h4>
+              {searchResult.map(data => (
+                <AccountItem key={data.id} data={data} />
+              ))}
+            </PopperWrapper>
+          </div>
         )}
-        {loading && <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />}
-
-        <button className={cx("search-btn")} onMouseDown={e => e.preventDefault()}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </button>
-      </div>
-    </TippyHeadLess>
+        onClickOutside={() => {
+          setShowResult(false);
+        }}
+      >
+        <div className={cx("search")}>
+          <input
+            ref={inputRef}
+            value={searchValue}
+            placeholder='Search accounts and videos'
+            spellCheck={false}
+            onChange={(e) => {
+              const searchValue = e.target.value;
+              if (searchValue.startsWith(" ")) {
+                return;
+              }
+              setSearchValue(searchValue)
+            }}
+            onFocus={(e) => setShowResult(true)}
+          />
+  
+          {!!searchValue && !loading && (
+            <button
+              className={cx("clear-btn")}
+              onClick={() => {
+                setSearchValue("");
+                inputRef.current.focus();
+              }}
+            >
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
+          )}
+          {loading && <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />}
+  
+          <button className={cx("search-btn")} onMouseDown={e => e.preventDefault()}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </div>
+      </TippyHeadLess>
+    </div>
   );
 }
 
